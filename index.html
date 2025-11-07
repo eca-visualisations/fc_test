@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Create your First Chart</title>
+<style type="text/css">
+#container {
+width: 700px;
+}
+</style>
+</head>
+
+<body>
+<div id="container"></div>
+<script src="fusioncharts.js"></script>
+<script src="fusioncharts.timeseries.js"></script>
+<script src="data.js"></script>
+<script src="schema.js"></script>
+<script>
+let fusionDataStore = new FusionCharts.DataStore();
+let fusionTable = fusionDataStore.createDataTable(data, schema);
+
+    new FusionCharts({
+        type: 'timeseries',
+        renderAt: 'container',
+        width: "90%",
+        height: 650,
+        dataSource: {
+            data: fusionTable,
+            caption: {
+                text: 'Online Sales of a SuperStore in the US'
+            }
+        }
+    }).render()
+
+</script>
+</body>
+
+</html>
