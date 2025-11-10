@@ -36,6 +36,17 @@ let fusionTable = fusionDataStore.createDataTable(data, schema);
         }
     }).render()
 
+</script>
+    
+<div id="container"></div>
+<script src="fusioncharts.js"></script>
+<script src="fusioncharts.timeseries.js"></script>
+<script src="data.js"></script>
+<script src="schema.js"></script>
+<script>
+let fusionDataStore = new FusionCharts.DataStore();
+let fusionTable = fusionDataStore.createDataTable(data, schema);
+
     new FusionCharts({
         type: 'timeseries',
         renderAt: 'container',
@@ -54,5 +65,6 @@ let fusionTable = fusionDataStore.createDataTable(data, schema);
 
 
 </html>
+
 
 
