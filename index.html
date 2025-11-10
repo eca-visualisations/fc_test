@@ -36,9 +36,23 @@ let fusionTable = fusionDataStore.createDataTable(data, schema);
         }
     }).render()
 
+    new FusionCharts({
+        type: 'timeseries',
+        renderAt: 'container',
+        width: "100%",
+        height: 650,
+        dataSource: {
+            data: fusionTable,
+            caption: {
+                text: 'Online Sales of a SuperStore in the US'
+            }
+        }
+    }).render()
+
 </script>
 </body>
 
 
 </html>
+
 
