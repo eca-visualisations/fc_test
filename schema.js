@@ -1,9 +1,9 @@
 let schema = [{
     "name": "Time",
     "type": "date",
-    "format": "%-m/%-d/%Y"
+    "format": "%d-%b-%Y %H:%M"
 },
 {
-    "name": "Sales",
+    "name": "Price ($/MWh)",
     "type": "number"
 }]
