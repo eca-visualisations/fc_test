@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Create your First Chart</title>
+<title>NSW High Impact Outages</title>
 <style type="text/css">
 #container {
 width: 1000px;
@@ -17,8 +17,9 @@ width: 1000px;
 <div id="container"></div>
 <script src="fusioncharts.js"></script>
 <script src="fusioncharts.timeseries.js"></script>
-<script src="data.js"></script>
+<script src="nsw_prices.js"></script>
 <script src="schema.js"></script>
+<script src="nsw_high_impact_outages.js"></script>
 <script>
 let fusionDataStore = new FusionCharts.DataStore();
 let fusionTable = fusionDataStore.createDataTable(data, schema);
@@ -31,7 +32,27 @@ let fusionTable = fusionDataStore.createDataTable(data, schema);
         dataSource: {
             data: fusionTable,
             caption: {
-                text: 'Online Sales of a SuperStore in the US'
+                text: 'High Impact Outages and High Prices in NSW'
+            },
+            xaxis: {
+                plot: "Time",
+                timemarker: nsw_outages
+            },
+            yAxis: {
+                plot: {
+                aggregation: "Max"
+                },
+                referenceline: [
+                {
+                    label: "AER Reporting Threshold",
+                    value: "5000",
+                    style: {
+                    marker: {
+                        "stroke-dasharray": [4, 3]
+                    }
+                    }
+                }
+                ]
             }
         }
     }).render()
@@ -39,8 +60,8 @@ let fusionTable = fusionDataStore.createDataTable(data, schema);
 </script>
 </body>
 
-
 </html>
+
 
 
 
