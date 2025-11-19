@@ -58,9 +58,48 @@ let fusionTable = fusionDataStore.createDataTable(data, schema);
     }).render()
 
 </script>
+<script>
+let fusionDataStore = new FusionCharts.DataStore();
+let fusionTable = fusionDataStore.createDataTable(data, schema);
+
+    new FusionCharts({
+        type: 'timeseries',
+        renderAt: 'container',
+        width: "100%",
+        height: 650,
+        dataSource: {
+            data: fusionTable,
+            caption: {
+                text: 'High Impact Outages and High Prices in NSW'
+            },
+            xaxis: {
+                plot: "Time",
+                timemarker: nsw_outages
+            },
+            yAxis: {
+                plot: {
+                aggregation: "Max"
+                },
+                referenceline: [
+                {
+                    label: "AER Reporting Threshold",
+                    value: "5000",
+                    style: {
+                    marker: {
+                        "stroke-dasharray": [4, 3]
+                    }
+                    }
+                }
+                ]
+            }
+        }
+    }).render()
+
+</script>
 </body>
 
 </html>
+
 
 
 
